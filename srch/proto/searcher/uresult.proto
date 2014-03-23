@@ -1,0 +1,12 @@
+import "proto/searcher/imatch.proto";
+
+option java_package = "vn.itim.engine.search.searcher.http.proto";
+
+message GetUrlResult {
+	optional int64 docid = 1;
+	optional int32 bucketId = 2;
+	optional int32 localDocid = 3;
+	repeated IndexMatch terms = 4;
+	optional string parsedPage = 5;
+	optional string wpi = 6;
+}

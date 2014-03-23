@@ -1,0 +1,24 @@
+import "proto/searcher/whit.proto";
+
+option java_package = "vn.itim.engine.search.searcher.http.proto";
+
+message GetHitsResult {
+	optional string query_tree_string_serialized = 1;
+	repeated WebHit hits = 2;
+	optional int32 real_size = 3;
+	optional int64 estimate_amount = 4;
+	optional int64 draft_time = 5;
+	optional int64 full_time = 6;
+	optional int32 mod_count = 7;
+	optional string query_tree_str = 8;
+	optional string suggestion = 9;
+	optional string statsString = 10;
+	optional int32 max_host_id = 11;
+	optional int32 max_title_id = 12;
+	optional bool strong_content = 13;
+	optional int32 debug_docid_draft_score = 14;
+	optional string location = 15;
+	optional int32 searcher_revison_info = 16;
+	optional int32 error_type = 17;
+	optional string trace_url = 18;
+}

@@ -1,0 +1,8 @@
+package itim.proto;
+
+message parsed_page {
+	optional int32 docid = 1;
+	optional string url = 2;
+	optional string title = 3;
+	optional string content = 4;
+}

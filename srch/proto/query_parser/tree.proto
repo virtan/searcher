@@ -1,0 +1,54 @@
+import "proto/query_parser/group.proto"; 
+import "proto/query_parser/location.proto"; 
+import "proto/query_parser/top_site.proto";
+option java_package = "vn.itim.engine.search.queryparser.proto";
+
+message StringList {
+	repeated string item = 1;
+}
+
+message QueryTree {
+	optional string site = 1;
+	optional string lang = 2;
+	optional string qlang = 3 [default = "vn"];
+	optional LocationDependency loc = 4;
+	repeated StringList minusPhrase = 5;
+	repeated QueryGroup crucialPhrase = 6;
+	optional int64 topicIds = 7;
+	repeated string secondarySites = 8;
+	repeated int32 officeSyllIds = 9;
+	optional bool isExactSecondarySite = 10 [default = false];
+	repeated QueryTopSite topSites = 11;
+	repeated int32 homePageSylls = 12;
+	optional int32 forms = 13;
+	optional string query = 14;
+	optional int32 dateRange = 15;
+	optional string suggestion = 16;
+	optional int32 numOriginalSylls = 17;
+	repeated bool fullSecondarySites = 18;
+	optional int32 numAcceptedAddtoneVariant = 19;
+	optional double addtoneScoreRate1 = 20;
+	optional double addtoneScoreRate2 = 21;
+	optional double spellCheckerScore = 22;
+	optional int32 numCorrectedPos = 23;
+	optional int32 mainSyllId = 24;
+	optional double mainSyllIdf = 25;
+	optional double mainSyllBasicIdf = 26;
+	optional int32 numTonedSyllsInOriginalQuery = 27;
+	repeated string domainCandidates = 28;
+	repeated bool fullDomainCandidates = 29;
+	optional string formInfo = 30;
+	optional string redirect = 31;
+	repeated string suggestions = 32;
+	repeated int32 poi = 33;
+	repeated string poiText = 34;
+	optional int32 queryPurposeBits = 35;
+	optional int64 time = 36;
+	optional LocationDependency provinceInQuery = 37;
+	optional string provinceByIp = 38;
+	optional bool tone = 39;
+	optional int32 version = 40;
+	optional bool sensitivePeople = 41;
+	repeated float musicidfs = 42;
+	repeated float movieidfs = 43;
+}

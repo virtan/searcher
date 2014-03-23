@@ -1,0 +1,9 @@
+package itim.proto;
+
+message domain2site {
+	// private final String[] domains;
+	repeated string domains = 1;
+	// private final long[] siteids;
+	repeated int64 siteids = 2;
+}
+

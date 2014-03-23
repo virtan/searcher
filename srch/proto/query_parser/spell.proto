@@ -1,0 +1,5 @@
+option java_package = "vn.itim.engine.search.queryparser.proto";
+
+message SpellChecker {
+	repeated string suggestion = 1;
+}

@@ -1,0 +1,18 @@
+option java_package = "vn.itim.engine.search.queryparser.proto";
+
+message SyllInfo {
+	optional string syll = 1;
+	optional double idf = 2;
+	optional double basicIdf = 3;
+	optional bool firstDomainLevel = 4 [default = false];
+	optional bool isProvince = 5 [default = false];
+	optional double score = 6 [default = 1.0];
+	optional bool isMusicRelate = 7 [default = false];
+	optional bool isMusicKey = 8 [default = false];
+	optional bool isMovieRelate = 9 [default = false];
+	optional bool isMovieKey = 10 [default = false];
+	optional bool isNameKey = 11 [default = false];
+	optional bool isKoreanNameKey = 12 [default = false];
+	optional bool isCompanyNameKey = 13 [default = false];
+	optional bool isLongPhraseKey = 14 [default = false];
+}

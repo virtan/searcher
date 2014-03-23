@@ -1,0 +1,31 @@
+option java_package = "vn.itim.engine.search.queryparser.proto";
+
+message SynonymInfo {
+	required double idf = 1;
+	optional int32 begin = 2 [default = 0];
+	optional int32 end = 3 [default = 1];
+	optional double score = 4 [default = 1.0];
+	repeated string tokens = 5;
+	optional bool name = 6 [default = false];
+	optional bool spec = 7 [default = false];
+	optional string lang = 8 [default = "vn"];
+	optional bool conj = 9 [default = false];
+	optional bool firstDomainLevel = 10 [default = false];
+	optional bool urlsyn = 11 [default = false];
+	optional bool city = 12 [default = false];
+	optional bool base = 13 [default = false];
+	optional int32 type = 14 [default = 1];
+	repeated string nontoneTokens = 15;
+	optional double basicIdf = 16;
+	optional int32 id = 17;
+	optional bool isUserName = 18 [default = false];
+	optional bool isBrand = 19 [default = false];
+	optional bool isDomain = 20 [default = false];
+	optional int32 transformType = 21;
+	optional bool urlSynInTitle = 22 [default = false];
+	optional bool isMeaningless = 23 [default = false];
+	optional bool isYear = 24 [default = false];
+	repeated int32 parents = 25;
+	optional int32 downgradeType = 26 [default = 0];
+	optional uint32 partOfSpeech = 27 [default = 0];
+}

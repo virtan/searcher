@@ -1,0 +1,5 @@
+option java_package = "vn.itim.engine.search.searcher.http.proto";
+
+message FeaturesVector {
+	repeated float array = 1;
+}

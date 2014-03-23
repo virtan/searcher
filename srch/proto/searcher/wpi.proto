@@ -1,0 +1,144 @@
+package itim.proto;
+
+option optimize_for = SPEED;
+
+// Straightforward WebPageInfo Java class translation
+message web_page_info {
+	// public boolean mainpage;
+	optional bool mainpage = 1;
+	// public boolean mainpageForGrouping;
+	optional bool mainpage_for_grouping = 2;
+	// public short urlLength;
+	optional int32 url_length = 3;
+	// public byte firstLevelDomainSize;
+	optional int32 first_level_domain_size = 4;
+	// public short[] zonelens;
+	repeated int32 zonelens = 5;
+	// public float[] zonenorms;
+	repeated float zonenorms = 6;
+	// public float[] backlinksWeigths1;
+	repeated float backlinks_weights1 = 7;
+	// public float[] backlinksWeigths2;
+	repeated float backlinks_weights2 = 8;
+	// public float[] trustedBacklinks1Weigths1;
+	repeated float trusted_backlinks1_weights1 = 9;
+	// public float[] trustedBacklinks1Weigths2;
+	repeated float trusted_backlinks1_weights2 = 10;
+	// public float[] trustedBacklinks2Weigths1;
+	repeated float trusted_backlinks2_weights1 = 11;
+	// public float[] trustedBacklinks2Weigths2;
+	repeated float trusted_backlinks2_weights2 = 12;
+	// public short[] slashUrlZoneLens;
+	repeated int32 slash_url_zone_lens = 13;
+	// public float[] wikiBacklinksWeights;
+	repeated float wiki_backlinks_weights = 14;
+	// public byte wikiLinksCount;
+	optional int32 wiki_links_count = 15;
+	// public short wikiLinksCountPerSite;
+	optional int32 wiki_links_count_per_site = 16;
+	// public float[] hostMeaningsWeights;
+	repeated float host_meanings_weights = 17;
+	// public short[] hostMeaningLens;
+	repeated int32 host_meanings_lens = 18;
+
+	// public int titleHash;
+	optional int32 title_hash = 19;
+	// TODO: move into the containing class
+	// // see Score.*_LANG
+	// public byte language;
+	optional int32 language = 20;
+
+	// public PageAssessments pageAssessments; // can be null
+	message page_assessment {
+		optional string name = 1;
+		optional int32 value = 2;
+	}
+	repeated page_assessment page_assessments = 21;
+
+	// public long siteidForRanking; // new - used for domain2site
+	optional int64 siteid_for_ranking = 22;
+	// public long siteidForGroupping; // new - used for grouping
+	optional int64 siteid_for_grouping = 23;
+	// public float siterank; // new
+	optional float siterank = 24;
+	// public float pagePriority; // new
+	optional float page_priority = 25;
+	// public byte urlTitleMeaning; // new - bit 0 is for title, bit 1 is for url
+	optional int32 url_title_meaning = 26;
+
+	// private byte quality; // new
+	optional int32 quality = 27;
+	// public static final int QUALITY_SPAM = 1;
+	// public static final int QUALITY_SEARCH = 2;
+	// public static final int QUALITY_GOOD = 4;
+	// public static final int QUALITY_BAD = 8;
+	// public static final int QUALITY_WIKI_EN = 16;
+	// public static final int QUALITY_WIKI_VI = 32;
+	// public static final int QUALITY_WIKI = QUALITY_WIKI_EN | QUALITY_WIKI_VI;
+
+	// private long topics; // new
+	optional int64 topics = 28;
+
+	// // for SpamList
+	// public long siteForRankingHash;
+	optional int64 site_for_ranking_hash = 29;
+	// public long urlHash;
+	optional int64 url_hash = 30;
+	// public String url;
+	optional string url = 31;
+
+	// public short alexaPlace;
+	optional int32 alexa_place = 32;
+
+	// public int basicPagePriority;
+	optional int32 basic_page_priority = 33;
+	// // region info
+	// public String[] regionByPhone;
+	repeated string region_by_phone = 34;
+	// public String regionByUrl;
+	optional string region_by_url = 35;
+	// public String regionByWhois;
+	optional string region_by_whois = 36;
+
+	// // zone idf info
+	// public float[] titleIdf = null;
+	repeated float title_idf = 37;
+	// public float[] slashUrlIdf = null;
+	repeated float slash_url_ifd = 38;
+
+	// //Num comment in page
+	// public byte numComment;
+	optional int32 num_comment = 39;
+	// //Num File Link in page
+	// public byte numFileLink;
+	optional int32 num_file_link = 40;
+	// //Newest Date - Long
+	// public long newestDate = 0; // 0 if not found; or the number of milliseconds since January 1, 1970, 00:00:00 GMT
+	optional int64 newest_date  = 41 [default = 0];
+	// // bit-field value for all boolean fields
+	// private long bitFields = 0;
+	optional int64 bit_fields  = 42 [default = 0];
+	// // patterns for setting/getting boolean fields
+	// public static final long BF_MAIN_PAGE_FOR_RANKING = 1 << 0;
+	// public static final long BF_MAIN_PAGE_FOR_GROUPING = 1 << 1;
+	// public static final long BF_BAD_FIRST_LEVEL_DOMAIN = 1 << 2;
+	// public static final long BF_FORUM_PAGE = 1 << 3;
+	// public static final long BF_USER_PAGE = 1 << 4;
+	// public static final long BF_SEARCH_PAGE = 1 << 5;
+	// public static final long BF_RSS_PAGE = 1 << 6;
+	// public static final long BF_PRINT_PAGE = 1 << 7;
+	// public static final long BF_MOBILE_PAGE = 1 << 8;
+	// public static final long BF_FIRST_FORUM_PAGE = 1 << 9;
+	// public static final long BF_QA_PAGE = 1 << 10;
+	// public static final long BF_HAS_GOOGLE_ADS = 1 << 11;
+	// public static final long BF_HAS_SCRIPT = 1 << 12;
+	// public static final long BF_HAS_EMBED = 1 << 13;
+	// public static final long BF_BOOK_SITE = 1 << 14;
+
+	// public float[] backlinksWeigths;
+	repeated float backlinks_weights = 43;
+	// public float[] trustedBacklinks1Weigths;
+	repeated float trusted_backlinks1_weights = 44;
+	// public float[] trustedBacklinks2Weigths;
+	repeated float trusted_backlinks2_weights = 45;
+}

@@ -1,0 +1,48 @@
+CXX = g++
+CXXFLAGS += -Wall -Wextra -I/opt/local/include
+CXXFLAGS += -g -O0
+CXXFLAGS += -std=c++0x
+CXXFLAGS += -pthread
+LDLIBS += -L/opt/local/lib -lprotobuf
+LDLIBS += -lpthread
+SRC = main.cc
+OBJECTS = $(addsuffix .o, $(basename $(SRC)))
+
+PROTO_PATH = proto
+PROTO_MESSAGES = $(wildcard $(PROTO_PATH)/*.proto)
+PROTO_OBJECTS = $(addsuffix .pb.o, $(basename $(notdir $(PROTO_MESSAGES))))
+PROTO_SRC = $(addsuffix .pb.cc, $(basename $(notdir $(PROTO_MESSAGES))))
+PROTO_HEADERS = $(addsuffix .pb.h, $(basename $(notdir $(PROTO_MESSAGES))))
+
+
+
+
+all: searcher
+
+searcher:  $(PROTO_OBJECTS) $(OBJECTS)
+	$(CXX) $(LDFLAGS) $(LDLIBS) -o $@ $+
+
+%.o : %.cc
+	$(CXX) $(CXXFLAGS) -c $<
+
+proto: $(PROTO_SRC)
+
+$(PROTO_OBJECTS): $(PROTO_SRC)
+$(PROTO_SRC) : $(PROTO_MESSAGES)
+	protoc --proto_path=$(PROTO_PATH) --cpp_out=. $+
+
+clean: clean-proto
+	-@rm -f searcher &> /dev/null
+	-@rm -f $(OBJECTS) &> /dev/null
+
+clean-proto:
+	-@rm -f $(PROTO_OBJECTS) $(PROTO_SRC) $(PROTO_HEADERS) &> /dev/null
+
+check-syntax:
+	$(CXX) $(CXXFLAGS) -fsyntax-only $(CHK_SOURCES)
+
+test-load:
+	$(CXX) $(CXXFLAGS) $(TEST_SRC) $(LDLIBS) -lboost_chrono -o tests/test_load
+
+.PHONY : clean check-syntax proto
+

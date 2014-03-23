@@ -1,0 +1,12 @@
+import "proto/searcher/scr.proto";
+
+option java_package = "vn.itim.engine.search.searcher.http.proto";
+
+message CompareScore {
+	optional int64 docid1 = 1;
+	optional int64 docid2 = 2;
+	optional Score score1 = 3;
+	optional Score score2 = 4;
+	optional string url1 = 5;
+	optional string url2 = 6;
+}

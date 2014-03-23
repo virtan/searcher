@@ -1,0 +1,19 @@
+option java_package = "vn.itim.engine.search.searcher.http.proto";
+
+message HitPage {
+	required int64 docid = 1;
+	optional bool exact = 2;
+	optional int64 url_hash = 3;
+	optional int64 title_hash = 4;
+	optional int64 content_hash = 5;
+	repeated string field_keys = 6; /* deprecated */
+	repeated string field_values = 7; /* deprecated */
+	optional uint32 num_corrected_tokens = 8;
+	optional string url = 9;
+	optional string url_short = 10;
+	optional string title = 11;
+	optional string content = 12;
+	optional string thumbnail = 13;
+	optional string infobox = 14;
+	optional string image_url = 15;
+}

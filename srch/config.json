@@ -1,0 +1,25 @@
+{
+    "index_buckets": {
+        /*"path": "/home/virtan/data/converted-ramdisk",*/
+        "path": "/home/virtan/data/converted",
+        "index": {
+            "file_suffix": "index/index",
+            "flags": "readonly"
+            /*"pre_cache": "on"*/
+            /*"mlock": "on"*/
+        },
+        "lexicon": {
+            "file_suffix": "index/lexicon",
+            "flags": "readonly"
+        },
+        "webpageinfo": {
+            "file_suffix": "wpis"
+        },
+        "domain2site": {
+            "file_suffix": "domain2site"
+        }
+    },
+    "provinces" : {
+        "file": "/home/virtan/storage-extra-data/data/provinces.pb"
+    }
+}

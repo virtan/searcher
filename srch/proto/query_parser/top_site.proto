@@ -1,0 +1,7 @@
+option java_package = "vn.itim.engine.search.queryparser.proto";
+
+message QueryTopSite {
+	optional string text = 1 [default = ""];
+	optional int32 weight = 2 [default = 0];
+	optional bool full = 3 [default = false];
+}

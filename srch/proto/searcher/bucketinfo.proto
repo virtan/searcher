@@ -1,0 +1,7 @@
+package itim.proto;
+
+// BucketInfo Java class translation
+message bucketinfo {
+	// public long globalCorpusSize;
+	optional int64 global_corpus_size = 1;
+}

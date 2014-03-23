@@ -1,0 +1,6 @@
+option java_package = "vn.itim.engine.search.queryparser.proto";
+
+message LocationDependency {
+	repeated string prvs=1;
+	optional int32 level=2;
+}

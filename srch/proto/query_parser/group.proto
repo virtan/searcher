@@ -1,0 +1,17 @@
+import "proto/query_parser/syll.proto";
+import "proto/query_parser/synonym.proto";
+import "proto/query_parser/keywordpair.proto";
+
+option java_package = "vn.itim.engine.search.queryparser.proto";
+
+message QueryGroup {
+	optional int32 type = 1 [default = 0];
+	repeated SyllInfo syllInfo = 2;
+	repeated SynonymInfo synVector = 3;
+	repeated int32 hostRanges = 4;
+	repeated int32 mainSynInfos = 5;
+	optional int32 topicSynInfo = 6 [default = -1];
+	repeated KeywordPairInfo keywordPairs = 7;
+	repeated SynonymInfo originalTokens = 8;
+	optional string urlString = 9;
+}

@@ -1,0 +1,14 @@
+option java_package = "vn.itim.engine.search.searcher.http.proto";
+
+message IndexMatch {
+	optional string term = 1;
+	optional int32 dblock = 2 [default = -1];
+	optional int32 fblock = 3 [default = -1];
+	optional int32 draftrank = 4 [default = -1];
+	optional bool isPosting = 5 [default = false];
+	optional int32 draftScore = 6 [default = -1];
+	optional string draftString = 7;
+	optional string backlinksWeights = 8;
+	optional int32 length = 9 [default = 0];
+	optional string postings = 10;
+}

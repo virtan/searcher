@@ -1,0 +1,7 @@
+option java_package = "vn.itim.engine.search.queryparser.proto";
+
+message KeywordPairInfo {
+	optional int32 id1=1;
+	optional int32 id2=2;
+	optional int32 freq=3;
+}

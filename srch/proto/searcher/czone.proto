@@ -1,0 +1,8 @@
+option java_package = "vn.itim.engine.search.searcher.http.proto";
+
+message CandidateZone {
+	optional int32 zlen = 1;
+	optional int32 id = 2;
+	optional int32 qlen = 3;
+	repeated int32 tfs = 4;
+}
